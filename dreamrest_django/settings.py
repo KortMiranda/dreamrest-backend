@@ -134,9 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -145,6 +142,9 @@ REST_FRAMEWORK = {
 
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'https://localhost:3000',
-)
+CORS_ALLOWED_ORIGINS = [    
+ "https://example.com",
+ "http://localhost:3000",
+ "http://127.0.0.1:3000",
+ "http://dreamrest.herokuapp.com"
+]

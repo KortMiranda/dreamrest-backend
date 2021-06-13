@@ -1,26 +1,7 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.urls import reverse
 
 # Create your models here.
-
-class User(AbstractUser):
-
-     GENDER_CHOICES = (
-        ('male', 'Male'),
-        ('female', 'Female'),
-        ('not specified', 'Not specified')
-    )
-
-profile_image = models.ImageField(null=True)
-name = models.CharField(("Name of User"), blank=True, max_length=225)
-bio = models.TextField(null=True)
-gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
-username=models.CharField(max_length=100)
-email=models.CharField(max_length=100)
-
 class Card(models.Model):
-    user = models.ForeignKey(User, models.CASCADE)
     title=models.CharField(max_length=100)
     description=models.TextField(blank=True)
     img_url=models.TextField()
